@@ -1,4 +1,17 @@
+<h1>salut events</h1>
 
-<h1>Bienvenue sur Eventbrite</h1>
+<a  href="<%= new_event_path %>">créé un event</a>
+<div class="card-columns">
+    <% @events.each do |t| %>
 
-<% @event %>
+      <div  class="card text-white bg-secondary mb-3 " style="max-width: 20rem;">
+        <div class="card-header"><%= t.start_date %><br/></div>
+        <div class="card-body">
+          <h5 class="card-title"><%= t.title %><br/></h5>
+          <p class="btn btn-warning"><%= link_to "Détails", "/events/#{t.id}" %></p>
+
+        </div>
+      </div>
+
+    <% end %>
+  </div>
