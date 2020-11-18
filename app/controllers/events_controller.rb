@@ -2,9 +2,11 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
   end
+
   def show
     @event = Event.find(params[:id])
   end
+
   def new
     # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
     @event = Event.new

@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :static_pages, only: [:index]
   resources :events
   resources :users
-
+  resources :attendances
 end
