@@ -1,4 +1,4 @@
-<%= form_tag attendances_path do %>
+<%= form_tag event_attendances_path do %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -6,14 +6,14 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>payer: <%= (500 / 100)%> €</span>
+      <span>payer: <%= @attendance.event.price.to_s + "€"%> </span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount="500"
-          data-currency="euro"
+          data-amount="<%= @attendance.event.price * 100 %>"
+          data-currency="eur"
           data-locale="auto"></script>
 <% end %>

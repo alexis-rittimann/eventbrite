@@ -12,5 +12,5 @@
 <br><br>
 <%= @event.price %>€
 <% if user_signed_in? && @event.admin != current_user%>
- <h5>N'attendez plus, <%=link_to "cliquez ici", new_attendance_path(:event_id => params[:id]) %> pour réserver votre place !</h5>
+ <h5>N'attendez plus, <%=link_to "cliquez ici", new_event_attendance_path(:event_id => params[:id]) %> pour réserver votre place !</h5>
 <%end%>

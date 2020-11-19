@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
 
   resources :static_pages, only: [:index]
-  resources :events
-  resources :users
-  resources :attendances
+
+  resources :events do
+    resources :attendances, only: [:new, :create, :index]
+  end
+
+  resources :users do
+    resources :avatars, only: [:create]
+  end
 end
